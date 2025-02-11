@@ -85,7 +85,7 @@ class KMeans:
             """
             distances = np.zeros(shape=(n_samples, self.n_cl))
             for i in range(self.n_cl):
-                distances[:, i] = np.sum(np.sqaure(X - centers[i]), axis=1)
+                distances[:, i] = np.sum(np.square(X - centers[i]), axis=1)
             new_assignments = np.argmin(distances, axis=1)
 
             """
@@ -106,7 +106,7 @@ class KMeans:
         if self.verbose:
             plt.close()
 
-        return np.random.rand((self.n_cl, dim)), np.random.randint(0, self.n_cl - 1, X.shape[0])
+        return centers, new_assignments
 
     def compute_cost_function(self, X: np.ndarray, centers: np.ndarray,
                               assignments: np.ndarray):

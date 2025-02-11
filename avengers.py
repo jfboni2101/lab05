@@ -72,7 +72,7 @@ def main_kmeans_img(img_path, background_path):
     ax3.axis('off')
 
     ax1.imshow(cv2.cvtColor(img, cv2.COLOR_BGR2RGB).astype(np.uint8))
-    plt.waitforbuttonpress()
+    plt.waitforbuttonpress(timeout=2.00)
 
     # add coordinates
     row_indexes = np.arange(0, h)
@@ -92,7 +92,7 @@ def main_kmeans_img(img_path, background_path):
     labels = np.reshape(labels, (h, w))
 
     ax2.imshow(labels, cmap='hot')
-    plt.waitforbuttonpress()
+    plt.waitforbuttonpress(timeout=2.00)
 
     img_background = np.float32(cv2.imread(background_path))
     h, w, c = img.shape
@@ -103,4 +103,4 @@ def main_kmeans_img(img_path, background_path):
     result = cv2.cvtColor(result, cv2.COLOR_BGR2RGB).astype(np.uint8)
 
     ax3.imshow(result)
-    plt.waitforbuttonpress()
+    plt.waitforbuttonpress(timeout=2.00)
