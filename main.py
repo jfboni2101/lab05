@@ -53,12 +53,12 @@ if __name__ == '__main__':
         main_kmeans_img('img/tony.jpg', 'img/aereo.jpg')
     """
 
-
+    """
     # Gaussian Dataset
     X, y = gaussians_dataset(3, [300, 400, 200], [[1, 1], [-4, 6], [6, 6]],
                              [[2.5, 2.5], [4.5, 4.5], [1.5, 1.5]])
     kmeans_2d(X, y, 3)
-
+    """
 
     """
     # TwoMoon Dataset
@@ -66,7 +66,6 @@ if __name__ == '__main__':
     kmeans_2d(X, y, 2)
     """
 
-    """
+
     # Avengers Dataset
     main_kmeans_img('img/tony.jpg', 'img/aereo.jpg')
-    """

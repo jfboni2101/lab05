@@ -30,7 +30,8 @@ def blend(img, labels, img_background, fx=0.60, fy=0.60):
         (int((w2 - w1) / 2) + (w2-w1)%2, int((w2 - w1) / 2)), (0,0)),
                           mode='constant')
 
-    img_background = cv2.blur(img_background, (3, 3))
+    img_background = cv2.blur(img_background, (10, 10))
+    # se 0 non si aggiunge, se 1 si aggiunge labels_to_blend, viceversa per img_background
     blended = labels_to_blend * img_to_blend + (1. - labels_to_blend) * img_background
     blended = blended.astype(np.uint8)
 
@@ -89,6 +90,7 @@ def main_kmeans_img(img_path, background_path):
     initial_centers = np.array([[0, 1, 0], [0.5, 0.5, 0.5]])
     labels = KMeans(n_cl=2, verbose=False,
                     initial_centers=initial_centers).fit_predict(data)
+
     labels = np.reshape(labels, (h, w))
 
     ax2.imshow(labels, cmap='hot')
@@ -103,4 +105,4 @@ def main_kmeans_img(img_path, background_path):
     result = cv2.cvtColor(result, cv2.COLOR_BGR2RGB).astype(np.uint8)
 
     ax3.imshow(result)
-    plt.waitforbuttonpress(timeout=2.00)
+    plt.waitforbuttonpress()

@@ -148,7 +148,7 @@ class KMeans:
             cost = self.compute_cost_function(X, centers, assignments)
             if self.verbose:
                 print(f'Iteration: {i} - cost function: {cost: .2f}')
-            if cost_min < cost_min:
+            if cost < cost_min:
                 cost_min = cost_min
                 assignments_opt = assignments
 
